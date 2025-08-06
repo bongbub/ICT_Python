@@ -12,6 +12,22 @@ from bs4 import BeautifulSoup       # 수동으로 아래 방법을 통해 임�
 #                   사용하기 위해서는 터미널에서 pip install BeautifulSoup4 로 다운
 
 
+print(" ================  구글 이미지 읽어서 저장 ================")
+# 구글 사이트(http://www.google.com") 방문 -> 구글 로고 우클릭 -> [이미지 주소 복사] 선택 -> 아래 url 변수에 붙여넣기
+readurl = "https://images.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png"     # input
+savename = "D:\DEV05\workspace_python_ict05\data\images/googlelogo.png"         # output
 
 
+# 다운로드
+# 다운로드 받은 이미지 파일을 메모리에 저장
+# 1) read : 구글 로고를 읽는다.  input
+g_image = req.urlopen(readurl).read()
 
+# 2) 파일로 저장
+# wb : write binary : 바이나리로 저장하겠다
+with open(savename, mode = "wb") as f:      # 문장 자체에 f라는 별칭을 줌
+    f.write(g_image)                        # write : 메모리의 이미지를 파일로 저장
+    print("구글 이미지가 저장되었습니다")
+
+
+# " ================  구글 이미지 읽어서 저장 ================"
